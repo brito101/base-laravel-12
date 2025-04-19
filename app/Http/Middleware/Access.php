@@ -10,7 +10,7 @@ class Access
 {
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::user()->first_access == 1 && ! $request->routeIs('admin.user.edit') && ! $request->routeIs('admin.users.update') && ! $request->routeIs('admin.user.google2fa')) {
+        if (Auth::check() && Auth::user()->first_access == 1 && ! $request->routeIs('admin.user.edit') && ! $request->routeIs('admin.users.update') && ! $request->routeIs('admin.user.google2fa')) {
             return redirect()->route('admin.user.edit')->with('warning', 'Por favor atualize sua senha de acesso.');
         }
 
