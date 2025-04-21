@@ -86,7 +86,7 @@ class TextProcessor
 
         $url = str_replace('www.', '', env('APP_URL'));
 
-        return str_replace([$url, env('APP_URL'), env('APP_URL_A'), env('APP_URL_B')], ['', '', '', ''], $description);
+        return str_replace([$url, env('APP_URL')], ['', ''], $description);
     }
 
     public static function urlImageTransform($text, bool $misc = false): string
@@ -101,7 +101,7 @@ class TextProcessor
 
         $url = str_replace('www.', '', env('APP_URL'));
         foreach ($imageFile as $image) {
-            $img = str_replace([$url, env('APP_URL'), env('APP_URL_A'), env('APP_URL_B')], ['', '', '', ''], $image->getAttribute('src'));
+            $img = str_replace([$url, env('APP_URL')], ['', ''], $image->getAttribute('src'));
 
             try {
                 $image->setAttribute('src', 'data:image/svg+xml;base64,'.base64_encode(file_get_contents(public_path($img))));

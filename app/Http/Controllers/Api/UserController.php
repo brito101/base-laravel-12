@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Helpers\CheckPermission;
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use App\Models\Views\User as ViewsUser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,16 +17,16 @@ class UserController extends Controller
     {
         try {
             if (! JWTAuth::parseToken()->authenticate()) {
-                return response()->json(['error' => 'User not found'], 404);
+                throw new \Exception('User not found', 404);
             }
         } catch (JWTException $e) {
-            return response()->json(['error' => 'Invalid token'], 400);
+            throw new \Exception('Invalid token', 400);
         }
     }
 
     public function index(Request $request)
     {
-        CheckPermission::checkAuth('Listar Usuários', true);
+        CheckPermission::checkAuth('Listar Usuários');
 
         /** @var User $user */
         $user = Auth::user();

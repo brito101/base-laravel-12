@@ -7,10 +7,10 @@ use App\Models\User;
 use App\Models\Views\User as ViewsUser;
 use App\Models\Views\Visit;
 use App\Models\Views\VisitYesterday;
-use DataTables;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use stdClass;
+use Yajra\DataTables\Facades\DataTables;
 
 class AdminController extends Controller
 {
@@ -28,7 +28,7 @@ class AdminController extends Controller
             ->get();
 
         if ($request->ajax()) {
-            return Datatables::of($visits)
+            return DataTables::of($visits)
                 ->addColumn('time', function ($row) {
                     return date(('H:i:s'), strtotime($row->created_at));
                 })
