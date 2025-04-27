@@ -57,7 +57,7 @@
                                     <div class="col-12 col-md-6 form-group px-0 pr-md-2">
                                         <label for="telephone">Telefone</label>
                                         <input type="tel" class="form-control" id="telephone" placeholder="Telefone"
-                                            name="telephone" value="{{ old('telephone') ?? $user->telephone }}" required>
+                                            name="telephone" value="{{ old('telephone') ?? $user->telephone }}">
                                     </div>
                                     <div class="col-12 col-md-6 form-group px-0 pl-md-2">
                                         <label for="cell">Celular</label>
@@ -137,7 +137,7 @@
                                             <x-adminlte-select2 name="role">
                                                 @foreach ($roles as $role)
                                                     <option
-                                                        {{ old('role') == $role->name ? 'selected' : ($user->roles->first()->id == $role->id ? 'selected' : '') }}
+                                                        {{ old('role') == $role->name ? 'selected' : (isset($user->roles->first()->id) && $user->roles->first()->id == $role->id ? 'selected' : '') }}
                                                         value="{{ $role->name }}">{{ $role->name }}</option>
                                                 @endforeach
                                             </x-adminlte-select2>
@@ -162,7 +162,6 @@
                                         </div>
                                     @endif
                                 @endcan
-
 
                             </div>
 
