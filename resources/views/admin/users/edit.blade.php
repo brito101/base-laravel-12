@@ -179,7 +179,5 @@
 
 @section('custom_js')
     <script src="{{ asset('vendor/jquery/jquery.inputmask.bundle.min.js') }}"></script>
-    <script src="{{ asset('js/address.js') }}"></script>
-    <script src="{{ asset('js/phone.js') }}"></script>
-    <script src="{{ asset('js/google2fa.js') }}"></script>
+    @vite(['resources/js/phone.js', 'resources/js/google2fa.js'])
 @endsection

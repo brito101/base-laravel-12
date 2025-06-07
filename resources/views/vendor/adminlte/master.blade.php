@@ -19,6 +19,9 @@
             @yield('title_postfix', config('adminlte.title_postfix', ''))
         </title>
 
+        {{-- Vite --}}
+        @vite(['resources/js/app.js', 'resources/sass/app.scss'])
+        
         {{-- Custom stylesheets (pre AdminLTE) --}}
         @yield('adminlte_css_pre')
 

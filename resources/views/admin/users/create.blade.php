@@ -100,7 +100,7 @@
                                     <x-adminlte-input-switch name="first_access" label="Primeiro Acesso" data-on-text="Sim"
                                         data-off-text="Não" data-on-color="teal" id="first_access" />
                                 </div>
-                            </div>                            
+                            </div>
 
                             <div class="card-footer">
                                 <button type="submit" class="btn btn-primary">Enviar</button>
@@ -116,5 +116,7 @@
 
 @section('custom_js')
     <script src="{{ asset('vendor/jquery/jquery.inputmask.bundle.min.js') }}"></script>
-    <script src="{{ asset('js/phone.js') }}"></script>
+    @vite('resources/js/phone.js')
 @endsection
+
+

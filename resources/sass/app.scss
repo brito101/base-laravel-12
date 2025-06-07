@@ -1,8 +1,8 @@
-// Fonts
+/* Local Variables */
+@use 'variables' as *;
+
+/* Bootstrap */
+@use "bootstrap/scss/bootstrap";
+
+/* Google Fonts */
 @import url("https://fonts.googleapis.com/css?family=Nunito");
-
-// Variables
-@import "variables";
-
-// Bootstrap
-@import "~bootstrap/scss/bootstrap";

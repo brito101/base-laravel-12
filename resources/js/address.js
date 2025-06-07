@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(function() {
     $("#zipcode").inputmask("99.999-999");
     $("#state").inputmask("AA");
 
