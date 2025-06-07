@@ -1,4 +1,4 @@
-# Project with Laravel 12 and Docker wuth Laravel Pint, PEST, Debugar, AdminLTE3, DataTables server side and Spatie ACL
+# Project with Laravel 12 and Docker with Laravel Pint, PEST, Debugar, AdminLTE3, DataTables server side and Spatie ACL
 
 ## Resources
 
