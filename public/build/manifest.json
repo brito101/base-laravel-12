@@ -1,0 +1,37 @@
+{
+  "resources/js/address.js": {
+    "file": "assets/address-BO-52L3Z.js",
+    "name": "address",
+    "src": "resources/js/address.js",
+    "isEntry": true
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-B_9xOxt_.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true
+  },
+  "resources/js/company.js": {
+    "file": "assets/company-B8E9l_GK.js",
+    "name": "company",
+    "src": "resources/js/company.js",
+    "isEntry": true
+  },
+  "resources/js/google2fa.js": {
+    "file": "assets/google2fa-DUmHlKHb.js",
+    "name": "google2fa",
+    "src": "resources/js/google2fa.js",
+    "isEntry": true
+  },
+  "resources/js/phone.js": {
+    "file": "assets/phone-CVs0g1BW.js",
+    "name": "phone",
+    "src": "resources/js/phone.js",
+    "isEntry": true
+  },
+  "resources/sass/app.scss": {
+    "file": "assets/app-KcHSlHOh.css",
+    "src": "resources/sass/app.scss",
+    "isEntry": true
+  }
+}
