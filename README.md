@@ -1,4 +1,4 @@
-# Project with Laravel 12 and Docker with Laravel Pint, PEST, Debugar, AdminLTE3, DataTables server side and Spatie ACL
+# Project with Laravel 12 and Docker with Laravel Pint, PEST, Debugbar, AdminLTE3, DataTables server side and Spatie ACL
 
 ## Resources
 
@@ -17,7 +17,7 @@
 -   `alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'`
 -   `sail artisan storage:link`
 -   `sail artisan migrate --seed`
--   `sail npm install && npm run dev`
+-   `sail npm install && sail npm run dev`
 
 
 ### Programmer login
