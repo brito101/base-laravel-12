@@ -51,7 +51,6 @@
                                                     name="{{ $permission->id }}"
                                                     {{ $permission->can == '1' ? 'checked' : '' }}>
                                                 <label for="{{ $permission->id }}" class="my-0 ml-2">{{ $permission->name }}</label>
-                                                </label>
                                             </div>
                                         </div>
                                     </div>
