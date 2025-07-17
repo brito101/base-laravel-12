@@ -5,6 +5,15 @@
 @section('adminlte_css')
     @stack('css')
     @yield('css')
+    <style>
+        * {
+            text-decoration: none !important;
+        }
+
+        div.dt-button-collection {
+            background-color: #454d55;
+        }
+    </style>
 @stop
 
 @section('classes_body', $layoutHelper->makeBodyClasses())

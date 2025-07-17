@@ -74,7 +74,7 @@
 
                     <div class="card-body">
                         <x-adminlte-datatable id="table1" :heads="$heads" :heads="$heads" :config="$config" striped
-                            hoverable beautify />
+                            hoverable beautify theme="dark"/>
                     </div>
                 </div>
 
