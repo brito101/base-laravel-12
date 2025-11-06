@@ -297,7 +297,7 @@ Authorization: Bearer {token}
 
 ### Code Standards
 
-- **PSR-12HP coding standard
+- **PSR-12HP** coding standard
 - **Laravel Pint** - Code style fixer
 - **PEST** - Testing framework
 - **Conventional Commits** - Commit standard
