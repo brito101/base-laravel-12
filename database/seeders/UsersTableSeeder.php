@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use DateTime;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class UsersTableSeeder extends Seeder
 {
@@ -17,12 +18,14 @@ class UsersTableSeeder extends Seeder
     {
         DB::table('users')->insert([
             [
+                'id' => Str::uuid()->toString(),
                 'name' => 'Programador',
                 'email' => env('PROGRAMMER_EMAIL'),
                 'password' => bcrypt(env('PROGRAMMER_PASSWD')),
                 'created_at' => new DateTime('now'),
             ],
             [
+                'id' => Str::uuid()->toString(),
                 'name' => 'Administrator',
                 'email' => env('ADMIN_EMAIL'),
                 'password' => bcrypt(env('ADMIN_PASSWD')),

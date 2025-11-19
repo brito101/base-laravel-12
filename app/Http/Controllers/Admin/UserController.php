@@ -32,7 +32,7 @@ class UserController extends Controller
 
         if ($request->ajax()) {
             if (Auth::user()->hasRole('Programador')) {
-                $users = ViewsUser::all('id', 'name', 'email', 'type', 'photo');
+                $users = ViewsUser::all(['id', 'name', 'email', 'type', 'photo']);
             } elseif (Auth::user()->hasRole('Administrador')) {
                 $users = ViewsUser::whereIn('type', ['Administrador', 'Usuário'])->get(['id', 'name', 'email', 'type', 'photo']);
             } else {
@@ -109,7 +109,7 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(?int $id = null): View|\Illuminate\Foundation\Application|Factory|Application
+    public function edit(?string $id = null): View|\Illuminate\Foundation\Application|Factory|Application
     {
         if ($id) {
             CheckPermission::checkAuth('Editar Usuários');
@@ -135,7 +135,7 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UserRequest $request, int $id): RedirectResponse
+    public function update(UserRequest $request, string $id): RedirectResponse
     {
         CheckPermission::checkManyAuth(['Editar Usuários', 'Editar Usuário']);
 
@@ -201,7 +201,7 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(int $id): RedirectResponse
+    public function destroy(string $id): RedirectResponse
     {
         CheckPermission::checkAuth('Excluir Usuários');
 
