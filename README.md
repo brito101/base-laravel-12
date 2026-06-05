@@ -38,6 +38,7 @@ This is a **Laravel 13 template** developed to accelerate the development of rob
 - **Permission System** (Spatie Laravel Permission)
 - **JWT Authentication** for APIs
 - **Laravel Sanctum** for SPA
+- **Azure AD SSO** - Optional Microsoft Entra ID single sign-on
 - **Soft Deletes** in all models
 - **Robust data validation**
 
@@ -248,6 +249,46 @@ Authorization: Bearer {token}
 - `GET /api/v1/admin/users` - List users
 - `GET /api/v1/admin/profile` - User profile
 - `POST /api/v1/logout` - Logout
+
+## 🔑 Azure AD SSO (Optional)
+
+The template supports optional Single Sign-On via **Microsoft Entra ID (Azure AD)**. When configured, a "Sign in with Microsoft" button appears on the login page alongside the standard form. The local user base remains the authority for authorization — SSO is used for authentication only.
+
+### How it works
+
+1. User clicks "Entrar com Microsoft (SSO)"
+2. Azure AD authenticates the user and returns to the callback
+3. The application looks up the local user by e-mail — **no new users are created**
+4. Roles and permissions continue to be managed locally via Spatie Permission
+
+### Configuration
+
+Add the following variables to your `.env`:
+
+```env
+# Azure AD SSO (leave blank to disable the SSO button)
+AZURE_CLIENT_ID=your-application-client-id
+AZURE_CLIENT_SECRET=your-client-secret-value
+AZURE_TENANT_ID=common                          # or the specific tenant ID to restrict to one organization
+AZURE_REDIRECT_URI=https://yourdomain.com/auth/azure/callback
+```
+
+| `AZURE_TENANT_ID` value | Who can authenticate |
+|---|---|
+| `common` | Any Microsoft account (personal + organizational) |
+| `consumers` | Personal accounts only (hotmail, outlook, live) |
+| `organizations` | Organizational accounts only |
+| `<tenant-id>` | Only users from that specific Azure AD directory |
+
+### Azure Portal setup
+
+1. Go to **Microsoft Entra ID → App registrations → New registration**
+2. Set the redirect URI (**Web**): `https://yourdomain.com/auth/azure/callback`
+3. Under **Supported account types**, choose the appropriate option for your use case
+4. Go to **Certificates & secrets → New client secret** and copy the generated **Value**
+5. Collect the **Application (client) ID** and **Directory (tenant) ID** from the Overview page
+
+> **Note:** The SSO button is only rendered when `AZURE_CLIENT_ID` is set. Leaving it blank disables SSO without any code changes.
 
 ## 📁 Project Structure
 

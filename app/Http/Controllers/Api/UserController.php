@@ -8,20 +8,12 @@ use App\Models\User;
 use App\Models\Views\User as ViewsUser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Tymon\JWTAuth\Exceptions\JWTException;
-use Tymon\JWTAuth\Facades\JWTAuth;
 
 class UserController extends Controller
 {
     public function __construct()
     {
-        try {
-            if (! JWTAuth::parseToken()->authenticate()) {
-                throw new \Exception('User not found', 404);
-            }
-        } catch (JWTException $e) {
-            throw new \Exception('Invalid token', 400);
-        }
+        $this->middleware('auth:api');
     }
 
     public function index(Request $request)

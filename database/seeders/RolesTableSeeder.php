@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use DateTime;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Spatie\Permission\PermissionRegistrar;
 
 class RolesTableSeeder extends Seeder
 {
@@ -15,7 +16,7 @@ class RolesTableSeeder extends Seeder
      */
     public function run()
     {
-        app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
+        app()[PermissionRegistrar::class]->forgetCachedPermissions();
         DB::table('roles')->insert([
             [
                 'name' => 'Programador',

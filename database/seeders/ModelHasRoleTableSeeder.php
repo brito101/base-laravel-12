@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Spatie\Permission\PermissionRegistrar;
 
 class ModelHasRoleTableSeeder extends Seeder
 {
@@ -15,7 +16,7 @@ class ModelHasRoleTableSeeder extends Seeder
      */
     public function run()
     {
-        app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
+        app()[PermissionRegistrar::class]->forgetCachedPermissions();
 
         // Buscar usuários pelos emails ao invés de IDs fixos
         $programador = User::where('email', env('PROGRAMMER_EMAIL'))->first();

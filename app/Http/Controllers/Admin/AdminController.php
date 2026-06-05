@@ -25,6 +25,8 @@ class AdminController extends Controller
             ->where('url', 'NOT LIKE', '%offline%')
             ->where('url', 'NOT LIKE', '%manifest.json%')
             ->where('url', 'NOT LIKE', '%.png%')
+            ->where('url', 'NOT LIKE', '%code=%')
+            ->where('url', 'NOT LIKE', '%_token=%')
             ->get();
 
         if ($request->ajax()) {
@@ -81,6 +83,8 @@ class AdminController extends Controller
             ->where('url', 'NOT LIKE', '%offline%')
             ->where('url', 'NOT LIKE', '%manifest.json%')
             ->where('url', 'NOT LIKE', '%.png%')
+            ->where('url', 'NOT LIKE', '%code=%')
+            ->where('url', 'NOT LIKE', '%_token=%')
             ->where('method', 'GET')
             ->get();
         $accessYesterday = VisitYesterday::where('url', '!=', route('admin.home.chart'))
@@ -90,6 +94,8 @@ class AdminController extends Controller
             ->where('url', 'NOT LIKE', '%offline%')
             ->where('url', 'NOT LIKE', '%manifest.json%')
             ->where('url', 'NOT LIKE', '%.png%')
+            ->where('url', 'NOT LIKE', '%code=%')
+            ->where('url', 'NOT LIKE', '%_token=%')
             ->where('method', 'GET')
             ->count();
 

@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Spatie\Permission\PermissionRegistrar;
 
 class RolesHasPermissionTableSeeder extends Seeder
 {
@@ -14,7 +15,7 @@ class RolesHasPermissionTableSeeder extends Seeder
      */
     public function run()
     {
-        app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
+        app()[PermissionRegistrar::class]->forgetCachedPermissions();
         DB::table('role_has_permissions')->insert([
             /** ACL 1 to  11 */
             [

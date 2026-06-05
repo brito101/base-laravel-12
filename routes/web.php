@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\ACL\RoleController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\ChangelogController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Auth\AzureSSOController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -56,6 +57,12 @@ Route::get('/', function () {
 Auth::routes([
     'register' => false,
 ]);
+
+/** Azure AD SSO */
+Route::middleware('guest')->group(function () {
+    Route::get('auth/azure', [AzureSSOController::class, 'redirect'])->name('azure.redirect');
+    Route::get('auth/azure/callback', [AzureSSOController::class, 'callback'])->name('azure.callback');
+});
 
 Route::fallback(function () {
     abort('404');
